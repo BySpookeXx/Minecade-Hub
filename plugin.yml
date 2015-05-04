@@ -1,0 +1,4 @@
+name: Hub
+main: byspook.hub.main
+version: 1.4
+description: A simple Hub plugin.
