@@ -1,0 +1,80 @@
+# Hub - Config #
+# Designed and coded by: BySpooK #
+# Check out for more Updates on the Spigot page #
+
+# If you want to disable a message put "" #
+# Ex. TestMessage: '' #
+
+# Update on here! 
+# http://www.spigotmc.org/resources/6608/
+
+
+# [JOIN MESSAGES] #
+	
+JoinMessage: '&e%player% &7joined the hub.'
+# Default players join message.
+
+VIP-JoinMessage: '&f&l>> &e&lVIP &f&l%player% &7joined the hub.'
+# VIP's join message.
+
+VIP+-JoinMessage: '&f&l>> &e&lVIP+ &f&l%player% &7joined the hub.'
+# VIP+'s join message.
+
+STAFF-JoinMessage: '&f&l>> &c&lSTAFF &f&l%player% &7joined the hub.'
+# STAFF's join message.
+
+
+# [LEAVE MESSAGES] #
+
+LeaveMessage: '&e%player% &7left the hub.'
+# Default players leave message.
+
+VIP-JoinMessage: '&f&l>> &e&lVIP &f&l%player% &7joined the hub.'
+# VIP's join message.
+
+VIP+-JoinMessage: '&f&l>> &e&lVIP+ &f&l%player% &7joined the hub.'
+# VIP+'s join message.
+
+STAFF-LeaveMessage: '&f&l>> &c&lSTAFF &f&l%player% &7left the hub.'
+# STAFF's leave message.
+
+# [DOUBLE JUMP] #
+
+DoubleJump: true
+# Enable DoubleJump?
+
+JumpPower: 2
+# Default is 2
+
+JumpSound: true
+# Enable sounds on DoubleJump?
+
+JumpParticles: true
+# Enable particles on DoubleJump?
+
+DisableFallDamage: true
+# Disable the fall damage?
+
+# [UTILITIES] #
+
+DenyDrop: true
+# Deny players to drop items?
+
+DropMessage: '&9[Hub] &7You cannot drop items on the Hub!'
+# If DenyDrop is on true, the player will receive this message when he drops an item.
+
+DenyBuild: true
+# Deny players to build/break items?
+
+BuildMessage: '&9[Hub] &7You cannot build/break blocks on the Hub!'
+# If DenyBuild is on true, the player will receive this message when builds or breaks an item.
+
+DisableRain: true
+# Disable the rain?
+
+DisableHunger: true
+# Disable loosing Hunger?
+
+
+# Update on here! 
+# http://www.spigotmc.org/resources/6608/
