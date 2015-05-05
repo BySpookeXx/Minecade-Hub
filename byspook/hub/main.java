@@ -31,8 +31,6 @@ public class main
 {
   public void onEnable()
   {
-	getLogger().info("Starting Hub plugin v1.3! (Developed by BySpooK)");
-	
 	saveDefaultConfig();
     getServer().getPluginManager().registerEvents(this, this);
     
@@ -42,7 +40,9 @@ public class main
       
   @SuppressWarnings("deprecation")
 	public void run()
-      {
+    {
+	  if (getConfig().getBoolean("ColourArmor"))
+	  {
         Color c = Color.fromRGB(this.r.nextInt(255), this.r.nextInt(255), this.r.nextInt(255));
         Player[] arrayOfPlayer;
         int j = (arrayOfPlayer = Bukkit.getServer().getOnlinePlayers()).length;
@@ -54,8 +54,9 @@ public class main
             p.getInventory().setChestplate(main.this.getColorArmor(Material.LEATHER_CHESTPLATE, c));
           }
         }
-      }
-    }, 0L, 20L);
+	  }
+    }
+  }, 0L, 20L);
     
 	getLogger().info("Hub plugin Started! (Developed by BySpooK)");
   }
@@ -119,7 +120,6 @@ public class main
       Player p = e.getPlayer();
       e.setQuitMessage(getConfig().getString("LeaveMessage").replaceAll("&", "§").replaceAll("%player%", p.getName()));
 	}
-
 
 	if (e.getPlayer().hasPermission("hub.messages.leave.vip"))
 	{
@@ -216,13 +216,13 @@ public class main
   public void onMove(PlayerMoveEvent e)
   {
 	  Player p = e.getPlayer();
-	  if(p.getGameMode() == GameMode.SURVIVAL);
+	  if (p.getGameMode() == GameMode.SURVIVAL);
 	  {
-		  if(!p.getAllowFlight())
+		  if (!p.getAllowFlight())
 		  {
-			  if(p.isOnGround())
+			  if ((p.isOnGround()) && (e.getPlayer().hasPermission("hub.extras.doublejump")))
 			  {
-			  p.setAllowFlight(true);
+			      p.setAllowFlight(true);
 			  }
 		  }
 	  }
@@ -238,7 +238,7 @@ public class main
 		  e.setCancelled(true);
 		  p.setAllowFlight(false);
 		  p.setFlying(false);
-		  p.setVelocity(p.getLocation().getDirection().multiply(getConfig().getInt("JumpPower")));
+		  p.setVelocity(p.getLocation().getDirection().multiply(1.5).setY(0.6));
 		  
 		  if (getConfig().getBoolean("JumpSound"))
 		  {
@@ -247,11 +247,12 @@ public class main
 		  
 		  if (getConfig().getBoolean("JumpParticles"))
 		  {
-			  p.playEffect(p.getLocation(), Effect.ENDER_SIGNAL, 5);
+			  p.playEffect(p.getLocation(), Effect.ENDER_SIGNAL, 3);
 		  }	  
 	  }
   }
 
+  @EventHandler
   public void onDamage(EntityDamageEvent e)
   {
 	if (getConfig().getBoolean("DisableFallDamage"))
